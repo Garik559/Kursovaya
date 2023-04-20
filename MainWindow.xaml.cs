@@ -25,45 +25,12 @@ namespace Obuv1
         public MainWindow()
         {
             InitializeComponent();
-
-            ////var alType = ObuvEntities.GetContext()..Tolist();
-            ////alType.Insert(0, new Type { Name = "Все типы" });
-            //using (SqlConnection sqlConection = new SqlConnection())  // подключение к бд
-            //{
-
-            //    sqlConection.ConnectionString = "Data Source=.\\SQLEXPRESS;Integrated Security=True;Initial Catalog=Obuv"; // адрес подключения
-            //    SqlCommand commandT = new SqlCommand(); //создание команды
-                
-            //    try
-            //    {
-            //        if (sqlConection != null) // если conection не равен нулю
-            //        {
-            //            sqlConection.Open();    //открываем соединение
-            //            commandT.Connection = sqlConection; // передаем в команд соединение
-                        
-            //            commandT.CommandText = "SELECT Type_ FROM Shoes"; //создаем запрос
-                       
-            //            var allTypes = commandT.ExecuteNonQuery().ToString();
-            //            Console.WriteLine(allTypes);
-            //        }
-            //    }
-            //    finally
-            //    {
-            //        if (sqlConection != null)
-            //        {
-            //            sqlConection.Close(); //закрываем соединение
-            //        }
-                   
-            //    }
-            //}
-
-        
             
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //ComboType.ItemsSource = AppData.db.Shoes.ToList();
+          
             listView.ItemsSource = AppData.db.Shoes.ToList(); //передаем в listView информацию из таблицы Shoes
         }
 
