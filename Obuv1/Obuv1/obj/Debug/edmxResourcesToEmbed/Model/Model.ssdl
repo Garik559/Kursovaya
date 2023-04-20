@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ObuvModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Order_">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_" Type="nvarchar" MaxLength="255" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="255" />
+    <Property Name="City" Type="nvarchar" MaxLength="255" />
+    <Property Name="Address_" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone" Type="char" MaxLength="20" />
+    <Property Name="Id_Shoes" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shoes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Image_" Type="nvarchar(max)" />
+    <Property Name="Name_" Type="nvarchar" MaxLength="255" />
+    <Property Name="Type_" Type="nvarchar" MaxLength="255" />
+    <Property Name="Size" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="money" />
+    <Property Name="Discription" Type="nvarchar" MaxLength="900" />
+  </EntityType>
+  <Association Name="FK__Order___Id_Shoes__619B8048">
+    <End Role="Shoes" Type="Self.Shoes" Multiplicity="1" />
+    <End Role="Order_" Type="Self.Order_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shoes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order_">
+        <PropertyRef Name="Id_Shoes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ObuvModelContainer">
+    <EntitySet Name="Order_" EntityType="Self.Order_" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shoes" EntityType="Self.Shoes" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Order___Id_Shoes__619B8048" Association="Self.FK__Order___Id_Shoes__619B8048">
+      <End Role="Shoes" EntitySet="Shoes" />
+      <End Role="Order_" EntitySet="Order_" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

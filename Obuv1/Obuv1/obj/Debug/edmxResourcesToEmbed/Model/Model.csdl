@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ObuvModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Order_">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Address_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Id_Shoes" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Shoes" Relationship="Self.FK__Order___Id_Shoes__619B8048" FromRole="Order_" ToRole="Shoes" />
+  </EntityType>
+  <EntityType Name="Shoes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Type_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Size" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Discription" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Order_" Relationship="Self.FK__Order___Id_Shoes__619B8048" FromRole="Shoes" ToRole="Order_" />
+  </EntityType>
+  <Association Name="FK__Order___Id_Shoes__619B8048">
+    <End Role="Shoes" Type="Self.Shoes" Multiplicity="1" />
+    <End Role="Order_" Type="Self.Order_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shoes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order_">
+        <PropertyRef Name="Id_Shoes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ObuvEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Order_" EntityType="Self.Order_" />
+    <EntitySet Name="Shoes" EntityType="Self.Shoes" />
+    <AssociationSet Name="FK__Order___Id_Shoes__619B8048" Association="Self.FK__Order___Id_Shoes__619B8048">
+      <End Role="Shoes" EntitySet="Shoes" />
+      <End Role="Order_" EntitySet="Order_" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
