@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ObuvModelContainer" CdmEntityContainer="ObuvEntities">
+    <EntitySetMapping Name="Order_">
+      <EntityTypeMapping TypeName="ObuvModel.Order_">
+        <MappingFragment StoreEntitySet="Order_">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name_" ColumnName="Name_" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address_" ColumnName="Address_" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Id_Shoes" ColumnName="Id_Shoes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shoes">
+      <EntityTypeMapping TypeName="ObuvModel.Shoes">
+        <MappingFragment StoreEntitySet="Shoes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Image_" ColumnName="Image_" />
+          <ScalarProperty Name="Name_" ColumnName="Name_" />
+          <ScalarProperty Name="Type_" ColumnName="Type_" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Discription" ColumnName="Discription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
